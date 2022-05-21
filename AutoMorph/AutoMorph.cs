@@ -5,7 +5,7 @@ namespace AutoMorph
     internal static class AutoMorph
     {
         private static readonly List<BigInteger> foundNumber = new List<BigInteger>(100);
-        private static BigInteger exponent;                                                //текущий порядок числа
+        private static BigInteger exponent;                                           //текущий порядок числа
         private static int addCount;                                                  //сколько добавлено чисел в прошлом порядке
         private static int counter;                                                   //счетчик текущего порядка
 

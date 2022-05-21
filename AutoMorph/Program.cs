@@ -7,15 +7,9 @@ namespace AutoMorph
     {
         static void Main()
         {
-            BigInteger MaxValue = 10000000000;  //10^10
-            MaxValue *= MaxValue;               //10^20
-            MaxValue *= MaxValue;               //10^40
-            MaxValue *= MaxValue;               //10^80
-            MaxValue *= MaxValue;               //10^160
-            MaxValue *= MaxValue;               //10^320
-            MaxValue *= MaxValue;               //10^640
-            MaxValue *= MaxValue;               //10^1280
-            Console.ReadKey();
+            int iteration = IO.GetInt("Введите порядок вычисления: ");
+            BigInteger MaxValue = BigInteger.Pow (10,iteration);
+
             Console.WriteLine($"Начинаем вычисления до {MaxValue}");
             var Timer = Stopwatch.StartNew();
 
@@ -24,13 +18,11 @@ namespace AutoMorph
             Timer.Stop();
             Console.WriteLine($"Вычисления закончены за {Timer.Elapsed.TotalSeconds} секунд");
 
-            foreach (var item in AutoMorph.Get())
-            {
-                Console.WriteLine("{0,200}\n{1,200}", item, item * item);
-            }
+            IO.SendToFile("", AutoMorph.Get(), Timer, iteration);
+
             Console.WriteLine($"Найдено {AutoMorph.Get().Count} значений");
             Console.WriteLine($"Вычисления закончены за {Timer.Elapsed.TotalSeconds} секунд");
-            Console.WriteLine($"Вычисления до {MaxValue}");
+            Console.WriteLine($"Вычисления до 10^{iteration}");
             Console.ReadKey();
         }
     }

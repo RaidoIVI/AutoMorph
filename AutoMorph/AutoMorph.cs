@@ -38,7 +38,6 @@ namespace AutoMorph
 
         private static bool NumberTest(BigInteger value)
         {
-
             BigInteger tmp = value * value;
             tmp = tmp - ((tmp / (10 * exponent)) * (10 * exponent));
             if (tmp == value)

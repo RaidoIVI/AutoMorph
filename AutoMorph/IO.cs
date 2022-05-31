@@ -47,7 +47,7 @@ namespace AutoMorph
             sw.WriteLine($"Найдено {value.Count} значений");
             for (int i = 0; i < value.Count; i++)
             {
-                sw.WriteLine($"{i+1}. {value[i]} {value[i] * value[i]}");
+                sw.WriteLine($"{i + 1}. {value[i]} {value[i] * value[i]}");
             }
         }
 

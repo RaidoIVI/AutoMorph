@@ -8,7 +8,7 @@ namespace AutoMorph
         static void Main()
         {
             int iteration = IO.GetInt("Введите порядок вычисления: ");
-            BigInteger MaxValue = BigInteger.Pow (10,iteration);
+            BigInteger MaxValue = BigInteger.Pow(10, iteration);
 
             Console.WriteLine($"Начинаем вычисления до {MaxValue}");
             var Timer = Stopwatch.StartNew();

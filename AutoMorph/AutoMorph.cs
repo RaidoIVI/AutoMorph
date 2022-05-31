@@ -4,7 +4,7 @@ namespace AutoMorph
 {
     internal static class AutoMorph
     {
-        private static readonly List<BigInteger> foundNumber = new List<BigInteger>(100);
+        private static readonly List<BigInteger> foundNumber = new(100);
         private static BigInteger exponent;                                           //текущий порядок числа
         private static int addCount;                                                  //сколько добавлено чисел в прошлом порядке
         private static int counter;                                                   //счетчик текущего порядка
@@ -24,14 +24,14 @@ namespace AutoMorph
 
         private static void TestExponent()
         {
-            var tmp = foundNumber.Count();
+            var tmp = foundNumber.Count;
 
             for (int i = addCount; i > 0; i--)
             {
                 Generation(foundNumber[tmp - i]);
             }
 
-            exponent = exponent * 10;
+            exponent *= 10;
             addCount = counter;
             counter = 0;
         }
@@ -39,7 +39,7 @@ namespace AutoMorph
         private static bool NumberTest(BigInteger value)
         {
             BigInteger tmp = value * value;
-            tmp = tmp - ((tmp / (10 * exponent)) * (10 * exponent));
+            tmp -= (tmp / (10 * exponent) * (10 * exponent));
             if (tmp == value)
             {
                 return true;
@@ -66,7 +66,7 @@ namespace AutoMorph
         internal static List<BigInteger> Get()
         {
             foundNumber.Sort();
-            List<BigInteger> result = new List<BigInteger>();
+            List<BigInteger> result = new();
             foreach (BigInteger value in foundNumber)
             {
                 if (!result.Contains(value))
